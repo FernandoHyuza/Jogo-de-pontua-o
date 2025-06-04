@@ -1,0 +1,36 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    margin: 5px, 0;
+    font-size: 18px;
+}
+
+ol {
+    padding: 15px 35px;
+}
+
+.inform {
+    background-color: cornflowerblue;
+    width: 540px;
+}
+
+.inform .infoTitle {
+    align-items: center;
+    border-bottom: 1px lightgray;
+    display: flex;
+    height: 50px;
+    padding: 0 15px;
+}
+
+.startBtn button{
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 25px;
+    font-weight: 500;
+    padding: 15px 30px;
+}
