@@ -14,17 +14,68 @@
         <h1 class="infoTitle">Regras do Quiz</h1>
         <div class="list">
             <ol>
-                <li>O quiz é composto por 15 questões de múltipla escolha</li>
-                <li>Ao selecionar uma alternativa, não é possível alterar</li>
-                <li>Cada questão tem uma pontuação</li>
-                <li></li>
-                <li></li>
-                <li></li>
+                <li class="info">O quiz é composto por 15 questões de múltipla escolha</li>
+                <li class="info">Há um tempo de 15 segundos por questão</li>
+                <li class="info">Ao selecionar uma alternativa, não é possível alterá-la</li>
+                <li class="info">Cada questão tem uma pontuação que será medida no final</li>
+                <li class="info"></li>
             </ol>
+        </div>
+        <div class="buttons">
+            <button class="sair">Sair</button>
+            <button class="restart">Continuar</button>
         </div>
     </div>
 
-    
-    <button onclick="document.write('hello mfckers')">Altering btton</button>
+    <!-- Interface do Quiz-->
+
+    <div class="quizInfo">
+
+        <header>
+            <div class="title"><h1>Quiz de Pontuação</h1></div>
+            <div class="timer">
+                <div class="timerText">Tempo restante:</div>
+                <div class="timerTime">15</div>
+            </div>
+        </header>
+
+        <section>
+            <div class="questTitle">INSIRA ENUNCIADO</div>
+
+            <div class="optionsList">
+                <div class="option">OPÇÃO 1</div>
+                <div class="option">OPÇÃO 2</div>
+                <div class="option">OPÇÃO 3</div>
+                <div class="option">OPÇÃO 4</div>
+            </div>
+
+        </section>
+        
+        <!-- Rodapé do Quiz-->
+        
+        <footer>
+            <div class="totalQuest">
+                <span>Questão<p>1</p>de<p>15</p></span>
+            </div>
+            <button class="nextQuest">Próxima</button>
+        </footer>
+    </div>
+
+    <!-- Resultado do Quiz -->
+
+    <div class="resultado">
+        <div class="icon">
+            <!-- aqui deveria ir um icone de coroa/algo de mesmo valor simbólico -->
+        </div>
+        <div class="resultText">Você finalizou o Quiz!</div>
+        <div class="scoreText">
+            <span>Sua pontuação foi <p>1</p> de <p>15</p></span>
+        </div>
+        <div class="buttons">
+            <button class="restart">Recomeçar</button>
+            <button class="sair">Sair</button>
+        </div>
+    </div>
+
 </body>
 </html>
