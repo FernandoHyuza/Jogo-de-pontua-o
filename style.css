@@ -1,315 +1,323 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+/* --- Estilos Gerais para o Corpo da Página (body) --- */
 
+/* O 'body' representa todo o conteúdo visível da sua página web. */
 body {
-    background-color: cornflowerblue;
+    /* Define a família da fonte para todo o texto, com 'Arial' como primeira opção.
+       Se Arial não estiver disponível, tenta uma fonte genérica 'sans-serif' (sem serifa, mais moderna). */
+    font-family: Arial, sans-serif;
+    /* Define a cor de fundo de toda a página. '#f4f4f4' é um cinza muito claro. */
+    background: linear-gradient(to bottom, #3d84ff, #abc7ff);
+    /*
+     * 'display: flex;' torna o 'body' um container flexbox.
+     * Isso é usado para facilitar o alinhamento de seus itens filhos (o '.container').
+     */
+    display: flex;
+    /* 'justify-content: center;' centraliza os itens flexíveis horizontalmente.
+       Neste caso, ele centraliza o '.container' no meio do 'body'. */
+    justify-content: center;
+    /* 'align-items: center;' centraliza os itens flexíveis verticalmente.
+       Ele centraliza o '.container' no meio da altura da página. */
+    align-items: center;
+    /* 'min-height: 100vh;' faz com que o 'body' ocupe pelo menos 100% da altura da 'viewport' (tela visível).
+       Isso é crucial para que 'justify-content' e 'align-items' funcionem para centralizar na tela inteira. */
+    min-height: 100vh;
+    /* Remove a margem padrão que os navegadores aplicam ao 'body', garantindo que o conteúdo encoste nas bordas da tela. */
+    margin: 0;
+    /* Define a cor padrão do texto para todo o 'body'. '#333' é um cinza escuro. */
+    color: #333;
 }
 
-.startBtn, .inform, .quizInfo, .resultado {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
-                0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    left: 50%;
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%, -50%);
+/* Estilização da lista de regras */
+#rulesList {
+    justify-content: center;
+    display: flex; /* Permite que os itens da lista sejam alinhados horizontalmente. */
+    text-align: left; /* Alinha o texto da lista à esquerda. */
+    text-indent: 1,5em; /* Indenta o texto da lista para a direita, criando um recuo. */
+    margin-left: 1.5em; /* Adiciona uma margem à esquerda da lista, separando-a do restante do conteúdo. */
+    margin-bottom: 20px; /* Espaço abaixo da lista, separando-a de outros elementos. */
 }
 
-.startBtn button {
-    background-color: white;
+/* --- Estilos para o Contêiner Principal (div com class="container") --- */
+
+/* Seleciona qualquer elemento com a classe 'container'. Usamos isso para agrupar o conteúdo principal de cada página. */
+.container {
+    /* Cor de fundo do contêiner. '#fff' é branco. */
+    background-color: #fff;
+    /* Espaçamento interno de 30 pixels em todos os lados (cima, direita, baixo, esquerda). */
+    padding: 30px;
+    /* Arredonda os cantos do contêiner em 8 pixels. */
+    border-radius: 8px;
+    /* Adiciona uma sombra ao redor do contêiner para dar um efeito de profundidade.
+       Os valores são: deslocamento X, deslocamento Y, raio do desfoque, cor da sombra com 10% de opacidade. */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    /* Centraliza o texto e outros elementos inline dentro do contêiner. */
+    text-align: center;
+    /* Define a largura máxima do contêiner para 800 pixels. Ele não ficará maior que isso. */
+    max-width: 800px;
+    /* Define a largura do contêiner como 90% da largura do seu elemento pai (o 'body' neste caso).
+       Isso o torna responsivo: em telas menores, ele encolherá, mas nunca mais do que 800px. */
+    width: 90%;
+}
+
+/* --- Estilos para Títulos (h1 e h2) --- */
+
+/* Seleciona todos os elementos h1 e h2. */
+h1, h2 {
+    /* Define a cor dos títulos. '#0056b3' é um tom de azul. */
+    color: #0056b3;
+}
+
+/* --- Estilos para Botões (button) --- */
+
+/* Seleciona todos os elementos 'button'. */
+button {
+    /* Cor de fundo dos botões. '#007bff' é um azul mais claro. */
+    background-color: #007bff;
+    /* Cor do texto dos botões. 'white' é branco. */
+    color: white;
+    /* Espaçamento interno (preenchimento) dos botões. */
+    padding: 10px 20px;
+    /* Remove a borda padrão do botão. */
     border: none;
-    border-radius: 8px;
-    color: #007bff;
-    cursor: pointer;
-    font-size: 25px;
-    font-weight: 500;
-    outline: none;
-    padding: 15px 30px;
-}
-
-.inform {
-    background-color: white;
-    border-radius: 8px;
-    display: none;
-    opacity: 0;
-    pointer-events: none;
-    transform: translate(-50%, -50%) scale(0.9);
-    width: 540px;
-
-}
-
-.inform .infoTitle {
-    align-items: center;
-    border-bottom: 1px solid lightgray;
-    display: flex;
-    height: 50px;
-    padding: 0 35px;
-    width: 100%;
-}
-
-ol {
-    padding: 15px 35px;
-}
-
-li {
-    margin: 5px 0;
-}
-
-.inform .buttons {
-    align-items: center;
-    border-top: 1px solid lightgray;
-    display: flex;
-    height: 50px;
-    justify-content: space-evenly;
-    padding: 0 35px;
-}
-
-.inform .buttons button {
-    border: 1px solid #007bff;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 15px;
-    font-weight: 500;
-    height: 35px;
-    margin: 0 5px;
-    width: 80px;
-}
-
-.buttons button.sair {
-    color: #007bff;
-}
-
-.buttons button.sair:hover {
-    background-color: #007bff;
-    color: white;
-}
-
-.buttons button.restart {
-    background-color: #007bff;
-    color: white;
-}
-
-.buttons button.restart:hover {
-    background-color: #0263c5;
-}
-
-.quizInfo {
-    background-color: white;
-    border-radius: 8px;
-    display: none;
-    opacity: 0;
-    pointer-events: none;
-    transform: translate(-50%, -50%) scale(0.9);
-    width: 550px;
-
-}
-
-.quizInfo header {
-    align-items: center;
-    background-color: white;
-    border-radius: 8px 8px 0 0;
-    box-shadow: 0 3px 5px 1px rgba(0, 0, 0, 0.1);
-    display: flex;
-    height: 50px;
-    justify-content: space-between;
-    padding: 0 30px;
-    position: relative;
-    z-index: 99;
-}
-
-.quizInfo header .title{
-    font-size: 15px;
-    font-weight: 600;
-}
-
-.quizInfo header .timer {
-    align-items: center;
-    background-color: #cce5ff;
-    border: 1px solid #b8daff;
-    border-radius: 8px;
-    display: flex;
-    height: 35px;
-    justify-content: space-between;
-    padding: 0 8px;
-}
-
-.quizInfo header .timer .timerText {
-    font-size: 16px;
-    font-weight: 400;
-    padding: 0 8px 0 0;
-    user-select: none;
-}
-
-.quizInfo header .timer .timerTime {
-    background-color: #343a40;
-    border: 1px solid #343a40;
+    /* Arredonda os cantos dos botões. */
     border-radius: 5px;
-    color: white;
+    /* Altera o cursor do mouse para uma mão (indicando que é clicável) quando sobre o botão. */
+    cursor: pointer;
+    /* Define o tamanho da fonte do texto do botão. */
     font-size: 16px;
-    font-weight: 500;
-    height: 25px;
-    line-height: 24px;
+    /* Margem externa para separar os botões uns dos outros. */
+    margin: 10px 5px;
+    /* Adiciona uma transição suave para a propriedade 'background-color' que leva 0.3 segundos.
+       Isso cria um efeito visual agradável ao passar o mouse. */
+    transition: background-color 0.3s ease;
+}
+
+/* Estilo para o estado 'hover' (quando o mouse está sobre o botão). */
+button:hover {
+    /* Muda a cor de fundo para um tom de azul mais escuro ao passar o mouse. */
+    background-color: #0056b3;
+}
+
+/* --- Estilos para o Texto da Questão (div com id="questionText") --- */
+
+/* Seleciona o elemento div com o id 'questionText'. */
+#questionText {
+    /* Margem superior e inferior de 20px, e margem esquerda/direita de 0. */
+    margin: 20px 0;
+    /* Aumenta o tamanho da fonte para 1.2 vezes o tamanho padrão do elemento pai. */
+    font-size: 1.2em;
+    /* Aumenta o espaçamento entre as linhas do texto, melhorando a legibilidade. */
+    line-height: 1.8;
+    /* Alinha o texto à esquerda dentro do seu contêiner. */
+    text-align: left;
+    /* Torna o '#questionText' um contêiner flexbox. Isso é fundamental para que os spans de texto
+       e os selects de pontuação apareçam na mesma linha e se ajustem bem. */
+    display: flex;
+    /* Permite que os itens flexíveis (texto e selects) quebrem para a próxima linha se não houver espaço suficiente.
+       Isso garante que o texto não "transborde" da tela em dispositivos menores. */
+    flex-wrap: wrap;
+    /* Centraliza os itens flexíveis (texto e selects) horizontalmente dentro do '#questionText'. */
+    justify-content: center;
+}
+
+/* --- Estilos para as Lacunas de Pontuação (select com class="punctuation-select") --- */
+
+/* Seleciona elementos 'select' com a classe 'punctuation-select'. Estes são as lacunas no texto. */
+.punctuation-select {
+    /* 'inline-block' é crucial: permite que o select se comporte como um elemento de texto (fique na mesma linha)
+       mas também permite que você defina largura e altura, ao contrário de um 'inline' puro. */
+    display: inline-block;
+    /* Define a largura da lacuna. */
+    width: 70px;
+    /* Espaçamento interno para o texto dentro do select. */
+    padding: 2px 5px;
+    /* Pequena margem para separar o select do texto adjacente. */
+    margin: 0 4px;
+    /* Borda cinza clara para o select. */
+    border: 1px solid #ccc;
+    /* Arredonda os cantos da borda. */
+    border-radius: 4px;
+    /* Define o tamanho da fonte. */
+    font-size: 1em;
+    /* Define a família da fonte. 'Times New Roman' ou outra 'serif' pode dar uma aparência mais de pontuação de livro. */
+    font-family: 'Times New Roman', serif;
+    /* Centraliza o texto (a pontuação) dentro do select. */
     text-align: center;
-    user-select: none;
-    width: 35px;
-}
-
-.quizInfo section {
-    background-color: white;
-    padding: 25px 30px 20px 30px;
-}
-
-.questTitle {
-    font-size: 20px;
-    font-weight: 600;
-}
-
-.quizInfo section .optionsList {
-    display: block;
-    padding: 20px 0;
-}
-
-.quizInfo .optionsList .option {
-    align-items: center;
-    background-color: aliceblue;
-    border: 1px solid #84c5fe;
-    border-radius: 6px;
+    /*
+     * As propriedades '-webkit-appearance' e '-moz-appearance' (e 'appearance')
+     * removem os estilos padrão que os navegadores (Chrome/Safari, Firefox) aplicam aos selects.
+     * Isso nos dá controle total sobre a estilização do select.
+     */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    /* Cor de fundo do select, um cinza bem clarinho. */
+    background-color: #f9f9f9;
+    /* Altera o cursor para uma mão, indicando que é clicável. */
     cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 15px;
-    transition: all 0.3s ease;
-    padding: 8px 15px;
+    /* Alinha o select verticalmente ao meio do texto da linha. */
+    vertical-align: middle;
 }
 
-section .optionsList .option:hover {
-    background-color: #cce5ff;
-    border-color: #b8daff;
-    color: #004085;
-}
-
-.optionsList .option:last-child {
-    margin-bottom: 0px;
-}
-
-.optionsList .option .icon {
-    border: 2px solid transparent;
-    border-radius: 50%;
-    font-size: 13px;
-    height: 26px;
-    line-height: 24x;
-    pointer-events: none;
-    text-align: center;
-    width: 26px;
-}
-
-.optionsList .option .icon.check {
-    background-color: #d4edda;
-    border-color: #23903c;
-    color: #23903c;
-}
-
-.optionsList .option .icon.cross {
-    background-color: #a42834;
-    border-color: #f8d7da;
-    color: #a42834;
-}
-
-.quizInfo footer {
-    align-items: center;
-    display: flex;
-    height: 50px;
-    justify-content: space-between;
-    padding: 0 30px;
-    width: 100%;
-}
-
-.quizInfo .totalQuest span {
-    display: flex;
-    user-select: none;
-}
-
-footer .totalQuest span p {
-    font-weight: 500;
-    padding: 0 5px;
-}
-
-.totalQuest span p:first-child {
-    padding-left: 0px;
-}
-
-footer .nextQuest {
-    background-color: #007bff;
-    border: 1px solid #007bff;
-    border-radius: 6px;
-    color: white;
-    cursor: pointer;
-    font-size: 18px;
-    font-weight: 400;
-    height: 35px;
+/* Estilo para o select quando está em foco (clicado ou selecionado via teclado). */
+.punctuation-select:focus {
+    /* Remove o contorno padrão do navegador quando o elemento está em foco. */
     outline: none;
-    padding: 0 13px;
+    /* Muda a cor da borda para o azul principal quando em foco. */
+    border-color: #007bff;
+    /* Adiciona uma sombra suave para indicar o foco, com uma cor azul e 25% de opacidade. */
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
 }
 
-footer .nextQuest:hover{
-    background-color: #0263c5;
+/* Estilo para as opções dentro do select (não visível diretamente, mas afeta a fonte da lista suspensa). */
+.punctuation-select option {
+    /* Define a família da fonte para as opções dentro do dropdown do select, geralmente mais legível para listas. */
+    font-family: Arial, sans-serif;
 }
 
-.resultado {
-    align-items: center;
-    background-color: white;
+/* --- Estilos para Partes do Texto (span dentro de #questionText) --- */
+
+/* Seleciona elementos 'span' que são filhos do div com id 'questionText'. */
+#questionText span {
+    /* Garante que o span se comporte como um elemento de texto em linha. */
+    display: inline;
+    /* 'white-space: pre-wrap;' é importante! Ele faz com que espaços múltiplos e quebras de linha
+       no seu código-fonte HTML (ou strings JavaScript) sejam preservados.
+       Útil para garantir que o espaçamento entre palavras e pontuações seja renderizado como esperado. */
+    white-space: pre-wrap;
+}
+
+/* --- Estilos para Mensagens de Feedback (div com id="feedback") --- */
+
+/* Seleciona o div com o id 'feedback'. */
+#feedback {
+    /* Margem superior para separar do texto da questão. */
+    margin-top: 20px;
+    /* Tamanho da fonte. */
+    font-size: 1.1em;
+}
+
+/* --- Estilos para Cores de Feedback Específicas (classes) --- */
+
+/* Seleciona elementos com a classe 'correct-answer-feedback'. */
+.correct-answer-feedback {
+    /* Cor do texto verde, para indicar acerto. */
+    color: green;
+    /* Texto em negrito. */
+    font-weight: bold;
+}
+
+/* Seleciona elementos com a classe 'wrong-answer-feedback'. */
+.wrong-answer-feedback {
+    /* Cor do texto vermelho, para indicar erro. */
+    color: red;
+    /* Texto em negrito. */
+    font-weight: bold;
+}
+
+/* --- Estilos para a Caixa de Explicação de Erro (div com id="errorExplanation") --- */
+
+/* Seleciona o div com a classe 'explanation-box'. */
+.explanation-box {
+    /* Cor de fundo levemente avermelhada para indicar que é uma mensagem de erro/correção. */
+    background-color: #fcebeb;
+    /* Borda fina e avermelhada. */
+    border: 1px solid #e0b4b4;
+    /* Cantos arredondados. */
     border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    opacity: 0;
-    padding: 25px 30px;
-    pointer-events: none;
-    text-align: center;
-    transform: translate(-50%, -50%) scale(0.9);
-    width: 450px;
+    /* Espaçamento interno. */
+    padding: 15px;
+    /* Margem superior para separar do feedback. */
+    margin-top: 20px;
+    /* Alinha o texto à esquerda dentro da caixa. */
+    text-align: left;
+    /* **CRUCIAL**: Faz com que a caixa não seja exibida por padrão. O JavaScript a tornará visível quando houver erros. */
+    display: none;
 }
 
-.resultado .icon {
-    color: #007bff;
-    font-size: 100px;
+/* Estilo para o título h3 dentro da caixa de explicação. */
+.explanation-box h3 {
+    /* Cor vermelha escura para o título. */
+    color: #cc0000;
+    /* Remove a margem superior padrão do h3, para que ele fique mais próximo da borda da caixa. */
+    margin-top: 0;
+}
+
+/* Estilo para o título h4 dentro da caixa de explicação. */
+.explanation-box h4 {
+    /* Cor de texto padrão. */
+    color: #333;
+    /* Pequena margem inferior para separar do parágrafo abaixo. */
+    margin-bottom: 5px;
+}
+
+/* Estilo para os parágrafos dentro da caixa de explicação. */
+.explanation-box p {
+    /* Tamanho da fonte ligeiramente menor. */
+    font-size: 0.95em;
+    /* Espaçamento entre linhas. */
+    line-height: 1.5;
+    /* Margem inferior. */
     margin-bottom: 10px;
 }
 
-.resultado .resultText {
-    font-size: 25px;
-    font-weight: 500;
+/* Estilo para cada item detalhado de erro dentro da caixa de explicação. */
+.error-detail-item {
+    /* Espaçamento inferior para separar os múltiplos detalhes de erro. */
+    margin-bottom: 15px;
 }
 
-.resultado .scoreText span {
-    font-size: 18px;
-    font-weight: 500;
-    display: flex;
-    margin: 10px 0;
+/* --- Estilos para a Seção de Revisão de Resultados (div com id="resultsReview") --- */
+
+/* Seleciona o div com o id 'resultsReview'. */
+#resultsReview {
+    /* Margem superior para separar dos resultados finais. */
+    margin-top: 30px;
+    /* Alinha o texto à esquerda. */
+    text-align: left;
 }
 
-.scoreText span p {
-    font-weight: 600;
-    padding: 0 4px;
+/* Estilo para cada item de revisão de questão (div com class="review-item"). */
+.review-item {
+    /* Margem inferior para separar os itens de revisão. */
+    margin-bottom: 20px;
+    /* Espaçamento interno. */
+    padding: 15px;
+    /* Borda fina e clara. */
+    border: 1px solid #eee;
+    /* Cantos arredondados. */
+    border-radius: 8px;
+    /* Cor de fundo levemente cinza. */
+    background-color: #f9f9f9;
 }
 
-.resultado .buttons {
-    display: flex;
-    margin: 20px 0;
+/* Estilo para os títulos h4 dentro dos itens de revisão. */
+.review-item h4 {
+    /* Remove margem superior. */
+    margin-top: 0;
+    /* Cor azul. */
+    color: #0056b3;
 }
 
-.resultado .buttons button {
-    border: none;
-    border: 1px solid #007bff;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 18px;
-    font-weight: 500;
-    margin: 0 10px;
-    height: 35px;
-    outline: none;
-    padding: 0 20px;
-    transition: all 0.3s ease;
+/* Estilo para os parágrafos dentro dos itens de revisão. */
+.review-item p {
+    /* Tamanho da fonte. */
+    font-size: 1.1em;
+    /* Espaçamento entre linhas. */
+    line-height: 1.6;
+    
+}
+
+/* Estilo para a pequena caixa de explicação dentro dos itens de revisão. */
+.explanation-small {
+    /* Cor de fundo cinza mais escura. */
+    background-color: #f0f0f0;
+    /* Borda à esquerda, servindo como um indicador visual. */
+    border-left: 4px solid #ccc;
+    /* Espaçamento interno. */
+    padding: 10px;
+    /* Margem superior. */
+    margin-top: 10px;
+    /* Tamanho da fonte ligeiramente menor. */
+    font-size: 0.9em;
 }
