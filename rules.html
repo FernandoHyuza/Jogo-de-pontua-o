@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regras do Quiz de Pontuações</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Regras e Instruções do Quiz</h1>
+        <p>Bem-vindo ao Quiz de Pontuação! Este jogo foi feito para você praticar o uso correto das pontuações.</p>
+        <h2>Como jogar:</h2>
+        <div id="rulesList">
+            <ul>
+                <li>Você terá 15 questões.</li>
+                <li>Em cada questão, um texto aparecerá com espaços em branco.</li>
+                <li>Seu objetivo é selecionar a pontuação correta para cada espaço.</li>
+                <li>As primeiras questões focarão em um tipo específico de pontuação, enquanto as últimas misturarão vários tipos.</li>
+                <li>Ao final, sua pontuação será exibida.</li>
+                <li>Divirta-se e aprenda!</li>
+            </ul>
+        </div>
+        
+        <button id="backToHomeButton">Voltar ao Início</button>
+        <button id="startQuizFromRulesButton">Iniciar Quiz</button>
+    </div>
+
+    <script>
+        document.getElementById('backToHomeButton').addEventListener('click', function() {
+            window.location.href = 'index.html'; // Volta para a página inicial
+        });
+
+        document.getElementById('startQuizFromRulesButton').addEventListener('click', function() {
+            window.location.href = 'quiz.html'; // Redireciona para a página do quiz
+        });
+    </script>
+</body>
+</html>
