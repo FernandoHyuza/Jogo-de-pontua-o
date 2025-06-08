@@ -57,6 +57,11 @@ body {
     /* Define a largura do contêiner como 90% da largura do seu elemento pai (o 'body' neste caso).
        Isso o torna responsivo: em telas menores, ele encolherá, mas nunca mais do que 800px. */
     width: 90%;
+    /* Adiciona uma margem automática nas laterais para centralizar o contêiner horizontalmente na tela. */
+    margin: 0 auto;
+    /* Adiciona um espaçamento entre o contêiner e outros elementos acima e abaixo dele. */
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 /* --- Estilos para Títulos (h1 e h2) --- */

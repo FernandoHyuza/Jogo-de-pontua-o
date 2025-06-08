@@ -22,17 +22,17 @@
             </ul>
         </div>
         
-        <button id="backToHomeButton">Voltar ao Início</button>
-        <button id="startQuizFromRulesButton">Iniciar Quiz</button>
+        <button id="back">Voltar</button>
+        <button id="next">Avançar</button>
     </div>
 
     <script>
-        document.getElementById('backToHomeButton').addEventListener('click', function() {
+        document.getElementById('back').addEventListener('click', function() {
             window.location.href = 'index.html'; // Volta para a página inicial
         });
 
-        document.getElementById('startQuizFromRulesButton').addEventListener('click', function() {
-            window.location.href = 'quiz.html'; // Redireciona para a página do quiz
+        document.getElementById('next').addEventListener('click', function() {
+            window.location.href = 'instructions.html'; // Redireciona para a página do quiz
         });
     </script>
 </body>
