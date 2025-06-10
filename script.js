@@ -55,6 +55,10 @@ const punctuationExplanations = {
     '-': {
         name: 'Hífen',
         use: 'O hífen (-) é usado para ligar elementos de palavras compostas, ligar pronomes átonos a verbos e para indicar a translineação (divisão de sílabas no fim da linha).'
+    },
+        '—': {
+        name: 'Travessão',
+        use: 'O travessão (—) é usado para indicar mudança de interlocutor em diálogos, destacar intervenções do narrador, isolar elementos explicativos ou enfatizar informações dentro da frase.'
     }
 };
 
@@ -161,7 +165,7 @@ const errorExplanationBox = document.getElementById('errorExplanation'); // Onde
 
 // --- 5. Opções de Pontuação Disponíveis ---
 // Este array lista todas as opções de pontuação que aparecerão nos dropdowns (<select>) das lacunas.
-const punctuationOptions = [',', '.', ';', '?', '!', ':', '...', '“', '”', '(', ')', '-'];
+const punctuationOptions = [',', '.', ';', '?', '!', ':', '...', '“', '”', '(', ')', '-', '—'];
 
 // --- 6. Event Listeners (Ouvintes de Eventos) ---
 // Estes são os "gatilhos" que fazem o JavaScript reagir a ações específicas.
