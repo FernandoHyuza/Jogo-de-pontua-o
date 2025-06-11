@@ -181,7 +181,7 @@ const errorExplanationBox = document.getElementById('errorExplanation'); // Onde
 
 // --- 5. Opções de Pontuação Disponíveis ---
 // Este array lista todas as opções de pontuação que aparecerão nos dropdowns (<select>) das lacunas.
-const punctuationOptions = [',', '.', ';', '?', '!', ':', '...', '“', '”', '(', ')', '-', '—'];
+const punctuationOptions = [',', '.', ';', '?', '!', ':', '...', '"', '(', ')', '-', '—'];
 
 // --- 6. Event Listeners (Ouvintes de Eventos) ---
 // Estes são os "gatilhos" que fazem o JavaScript reagir a ações específicas.
@@ -263,16 +263,19 @@ function loadQuestion() {
             }
         });
 
-        // Exibe a citação (autor e obra) abaixo da questão, se existir
+        // ...dentro da função loadQuestion(), logo antes de adicionar a citação...
         if (currentQuestion.citation) {
+            // Adiciona uma linha horizontal para separar o texto da citação
+
             const citationDiv = document.createElement('div');
             citationDiv.className = 'citation';
-            citationDiv.style.marginTop = '18px';
+            citationDiv.style.marginTop = '0';
             citationDiv.style.fontStyle = 'italic';
-            citationDiv.style.fontSize = '1em';
+            citationDiv.style.fontSize = '0.7em';
             citationDiv.style.textAlign = 'right';
+            citationDiv.style.padding = '10px'
+            citationDiv.style.opacity = '80%'
             citationDiv.textContent = currentQuestion.citation;
-            questionTextElement.appendChild(document.createElement('br'));
             questionTextElement.appendChild(citationDiv);
         }
 
