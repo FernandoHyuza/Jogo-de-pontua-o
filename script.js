@@ -68,81 +68,97 @@ const punctuationExplanations = {
 //   - 'type': Uma categoria para a questão (não diretamente usado na lógica atual, mas útil para organização).
 //   - 'text': A frase da questão, onde '_' (sublinhado) marca o local das lacunas a serem preenchidas.
 //   - 'correctAnswers': Um array que contém as pontuações corretas, na ordem exata das lacunas na 'text'.
+//   - 'citation': Obra e autor da citação.
 const questions = [
     {
-        type: 'comma',
-        text: 'João vai à feira comprar maçãs_ peras_ e bananas_ e ele adora frutas frescas.',
-        correctAnswers: [',', ',', '.']
+        type: 'pontuacao',
+        text: 'O navio apitou_ Os passageiros_ com os olhos no cais_ choravam ou sorriam_ Adeus, adeus.',
+        correctAnswers: ['.',',',',','.'],
+        citation: 'Graciliano Ramos, Angústia'
     },
     {
-        type: 'semicolon',
-        text: 'Eu gosto de frutas_ ele_ de vegetais_ somos bem diferentes nos hábitos alimentares.',
-        correctAnswers: [';', ';']
+        type: 'pontuacao',
+        text: 'Olhou para o leito_ para o cadáver, para a lamparina_ para o chão, e ficou_',
+        correctAnswers: [',',',','...'],
+        citation: 'Machado de Assis, Dom Casmurro'
     },
     {
-        type: 'questionMark',
-        text: 'Você vai vir à festa_ Você está animado_ Espero que sim!',
-        correctAnswers: ['?', '?']
+        type: 'pontuacao',
+        text: 'Upa_ upa, upa_ Cavalinho_ Faz de conta que sou domador e você um pangaré manhoso!',
+        correctAnswers: [',','!','!'],
+        citation: 'Érico Veríssimo, O Tempo e o Vento'
     },
     {
-        type: 'exclamationMark',
-        text: 'Que dia lindo_ Socorro_ Fiquei presa no trânsito!',
-        correctAnswers: ['!', '!']
+        type: 'pontuacao',
+        text: 'Você já reparou nos olhos dela_ São assim de cigana oblíqua e dissimulada_',
+        correctAnswers: ['?','.'],
+        citation: 'Machado de Assis, Dom Casmurro'
     },
     {
-        type: 'colon',
-        text: 'A lista de compras é a seguinte_ pão_ leite e ovos_ precisamos de tudo isso para o café da manhã.',
-        correctAnswers: [':', '.']
+        type: 'pontuacao',
+        text: 'A conclusão a que cheguei é a seguinte_ não há fatos eternos_ como não há verdades absolutas_',
+        correctAnswers: [':',',','.'],
+        citation: 'Friedrich Nietzsche, Humano, Demasiado Humano'
     },
     {
-        type: 'semicolon',
-        text: 'Ele estudou muito_ contudo_ não passou no exame_ Ela se esforçou_ no entanto_ conseguiu o que queria.',
-        correctAnswers: [';', ';']
+        type: 'pontuacao',
+        text: 'Amai_ porque nada melhor para a saúde que um amor correspondido_ mas se não puderdes_ paciência.',
+        correctAnswers: [',',';',','],
+        citation: 'Vinicius de Moraes, Para Viver um Grande Amor'
     },
     {
-        type: 'ellipsis',
-        text: 'Ela começou a falar_ mas parou no meio da frase_ Ela queria dizer algo_ mas hesitou visivelmente.',
-        correctAnswers: ['...', '...']
+        type: 'pontuacao',
+        text: "O pai_ depois de um silêncio, disse_ _Você precisa ser forte._ E eu nunca soube o que aquilo queria dizer_",
+        correctAnswers: [',',':','"', '"','...'],
+        citation: 'Caio Fernando Abreu, Morangos Mofados'
     },
     {
-        type: 'quotes',
-        text: 'Ele disse_ Não sei se consigo_ Ela respondeu_ Você é capaz_ e deu um sorriso encorajador.',
-        correctAnswers: ['“', '”', '“', '”']
+        type: 'pontuacao',
+        text: 'A memória _e que outra coisa é a alma senão a memória?_ é uma ilha de edição.',
+        correctAnswers: ['(',')'],
+        citation: 'Ivan Lessa, Crônicas'
     },
     {
-        type: 'parentheses',
-        text: 'O Brasil é o maior país da América do Sul_ sua capital é Brasília_ é um país tropical_ com uma vasta diversidade.',
-        correctAnswers: ['(', ')', '.']
+        type: 'pontuacao',
+        text: 'Tu te tornas eternamente responsável por aquilo que cativas _ disse a raposa_',
+        correctAnswers: ['—','.'],
+        citation: 'Antoine de Saint-Exupéry, O Pequeno Príncipe'
     },
     {
-        type: 'mixed1',
-        text: 'O livro_ que comprei_ é muito interessante_ você já o leu_ Ele tem me prendido bastante.',
-        correctAnswers: [',', ',', '?']
+        type: 'pontuacao',
+        text: 'Não tive filhos_ não transmiti a nenhuma criatura o legado de nossa miséria_',
+        correctAnswers: [',','...'],
+        citation: 'Machado de Assis, Memórias Póstumas de Brás Cubas'
     },
     {
-        type: 'mixed2',
-        text: 'Ele perguntou_ Onde você vai_ mas ela não respondeu_ A situação ficou um pouco estranha.',
-        correctAnswers: ['“', '?', '”', '.']
+        type: 'pontuacao',
+        text: 'O meu ideal de felicidade seria um guarda_chuva_ um céu cinzento_ um livro e um chá_de_cidreira.',
+        correctAnswers: ['-',',',',','-','-'],
+        citation: 'Mário Quintana, Caderno H'
     },
     {
-        type: 'mixed3',
-        text: 'Preciso de algumas coisas_ papel_ caneta_ e borracha_ você pode me ajudar_ Tenho uma prova importante.',
-        correctAnswers: [':', ',', ',', '?']
+        type: 'pontuacao',
+        text: 'A imaginação foi a companheira de toda a minha existência_ viva, rápida, inquieta_ alguma vez tímida e amiga de empacar_ as mais delas doida e ébria_ Era um cavalo de tufa, que me trasportava muita vez ao imprevisto_ e servia_se de um simples pretexto, uma palavra_ um suspiro, para desbocar desenfreado, _ e eu com ele, e ele comigo, devorando as léguas e os minutos.',
+        correctAnswers: [',',',',',','.',',','-',',','—'],
+        citation: 'Machado de Assis, Dom Casmurro'
     },
     {
-        type: 'mixed4',
-        text: 'Amanhã_ se o tempo permitir_ iremos à praia_ Que maravilha_ Estou ansioso!',
-        correctAnswers: [',', ',', '!', '.']
+        type: 'pontuacao',
+        text: 'Sim_ não tenho o que fazer de mim, e então escrevo_ Antes de começar a escrever_ acendo um cigarro e fico a pensar_ Não, não é pensar_ é um sentir oco e surdo que me guia_ Tento arrancar de mim uma história, qualquer história, pois tenho _e como tenho!_ necessidade de falar.',
+        correctAnswers: [',','.',',','...',':','.','(',')'],
+        citation: 'Clarice Lispector, A Hora da Estrela'
     },
     {
-        type: 'mixed5',
-        text: 'Por favor_ traga_me um copo de água_ Ele disse_ com a voz fraca_ É urgente_ estou com muita sede.',
-        correctAnswers: [',', '!', '“', '”', '!']
+        type: 'pontuacao',
+        text: 'O menino mais velho, que se chamava Fabiano como o pai_ sentia um grande bem-estar_ Chape_chape na lama, os pés nus, chatos e largos_ os dedos separados. Jogava_se na relva_ rolava, ria_ sentia um prazer bestial_ um prazer de bicho.',
+        correctAnswers: [',','.','-',',','-',',',';',','],
+        citation: 'Graciliano Ramos, Vidas Secas'
     },
     {
-        type: 'mixed6',
-        text: 'Eu acredito que_ embora difícil_ podemos alcançar nossos objetivos_ não é mesmo_ A persistência é chave.',
-        correctAnswers: [',', ',', ',', '?']
+        type: 'pontuacao',
+        text: 'Eram cinco horas da manhã e o cortiço acordava_ abrindo_ não os olhos, mas a sua infinidade de portas e janelas alinhadas_ Um acordar alegre e farto de quem dormiu de uma assentada_ sete horas de chumbo. Começava um vaivém de gente, que ia e vinha_ os homens, antes de saírem para o trabalho_ queriam tomar a sua xícara de café_ e as mulheres precisavam aviar o almoço para a turma.',
+        correctAnswers: [',',',','.',',',';',',',','],
+        citation: 'Aluísio Azevedo, O Cortiço'
     }
 ];
 
@@ -246,6 +262,19 @@ function loadQuestion() {
                 questionTextElement.appendChild(select);
             }
         });
+
+        // Exibe a citação (autor e obra) abaixo da questão, se existir
+        if (currentQuestion.citation) {
+            const citationDiv = document.createElement('div');
+            citationDiv.className = 'citation';
+            citationDiv.style.marginTop = '18px';
+            citationDiv.style.fontStyle = 'italic';
+            citationDiv.style.fontSize = '1em';
+            citationDiv.style.textAlign = 'right';
+            citationDiv.textContent = currentQuestion.citation;
+            questionTextElement.appendChild(document.createElement('br'));
+            questionTextElement.appendChild(citationDiv);
+        }
 
     } else {
         // Se 'currentQuestionIndex' for igual ou maior que o número total de questões,
